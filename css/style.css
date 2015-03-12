@@ -1,0 +1,69 @@
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
+form {
+	margin-top: 50px;
+}
+
+textarea {
+	resize: vertical;
+}
+
+#header {
+	/*margin-bottom: 30px;*/
+}
+
+#add-ingredient {
+
+}
+
+#recipe-display button {
+
+}
+
+.short-input {
+	width: 80%;
+}
+
+.recipe-field {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.pane {
+	height: 100%;
+	margin: 15px;
+	padding: 15px;
+}
+
+.recipe-section {
+	border-bottom: 1px solid #444;
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+
+/* Override bootstrap's margin on container-fluid */
+.container-fluid {
+	margin-left: 50px;
+}
+
+/* Slide Out Sidebar */
+snap-content {
+	background-color: white;
+	border-left: 1px solid #ccc;
+	
+	-webkit-box-shadow: 2px 2px 2px 2px 2px #888;
+	-moz-box-shadow: 2px 2px 2px 2px 2px #888;
+	box-shadow: 2px 2px 2px 2px 2px #888;
+}
+
+.ingredient {
+	margin: 10px;
+	cursor: pointer;
+}
+
+.ingredient:hover {
+	background-color: lightgrey;
+}
