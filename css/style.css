@@ -1,0 +1,100 @@
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
+form {
+	margin-top: 50px;
+}
+
+textarea {
+	resize: vertical;
+}
+
+pre {
+	display: inline-block;
+	width: 80%;
+}
+
+#header {
+	/*margin-bottom: 30px;*/
+}
+
+#add-ingredient {
+
+}
+
+#recipe-display {
+	margin-right: 70px;
+
+	-webkit-box-shadow: 0 0 10px #888;
+	-moz-box-shadow: 0 0 10px #888;
+	box-shadow: 0 0 10px #888;
+}
+
+#recipe-input {
+	margin-left: 70px;
+}
+
+.short-input {
+	width: 80%;
+}
+
+.recipe-field {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.pane {
+	height: 100%;
+	margin: 15px;
+	padding: 15px;
+}
+
+.recipe-section {
+	border-bottom: 1px solid #444;
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.ingredient-text {
+	font-weight: bold;
+}
+
+.ingredient-quantity {
+	margin-right: 20px;
+}
+
+.ingredient-note {
+	margin-left: 20px;
+	clear: both;
+}
+
+/* Override bootstrap's margin on container-fluid */
+/*.container-fluid {
+	margin-left: 50px;
+	margin-right: 50px;
+}*/
+
+/* Slide Out Sidebar */
+snap-content {
+	background-color: white;
+	/*border-left: 1px solid #ccc;*/
+	
+	-webkit-box-shadow: 0 0 10px #888;
+	-moz-box-shadow: 0 0 10px #888;
+	box-shadow: 0 0 10px #888;
+}
+
+.ingredient {
+	margin: 10px;
+	cursor: pointer;
+}
+
+.ingredient:hover {
+	background-color: lightgrey;
+}
