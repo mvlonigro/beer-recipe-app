@@ -7,7 +7,6 @@
 	<meta name="author" content="Michael LoNigro">
 
 	<!-- Stylesheets -->
-	<!--<link rel="stylesheet" href="css/reset.css">-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/angular-snap.min.css">
 	<link rel="stylesheet" href="css/style.css">
@@ -18,10 +17,10 @@
 	<script src="js/angular-snap.min.js"></script>
 	<script src="js/ingredient-list.js"></script>
 	<script src="js/app.js"></script>
-
 </head>
 <body>
 
+<!-- Sidebar content -->
 <div snap-drawer id="drawer">
 	<div>
 		<h4 class="text-center">Type to filter ingredients</h4>
@@ -34,6 +33,7 @@
 	</div>
 </div>
 
+<!-- Sliding part of the page -->
 <snap-content id="content" 
 	snap-opt-disable="'right'" 
 	snap-opt-touch-to-drag="false"
@@ -42,7 +42,7 @@
 	snap-opt-easing="'ease'">
 	<div class="container-fluid">
 		<div class="row">
-
+			<!-- Left side of the page - input forms and such -->
 			<div id="recipe-input" class="col-md-5 pane pull-left">
 				<div id="header">
 					<h2>Beer Recipe Creator</h2>
@@ -72,6 +72,7 @@
 				</form>
 			</div>
 
+			<!-- Right side of the page - the recipe display -->
 			<div id="recipe-display" class="col-md-5 pane pull-right">
 				<div id="header">
 					<h2>Your Recipe</h2>

@@ -16,14 +16,6 @@ pre {
 	width: 80%;
 }
 
-#header {
-	/*margin-bottom: 30px;*/
-}
-
-#add-ingredient {
-
-}
-
 #recipe-display {
 	margin-right: 70px;
 
@@ -73,12 +65,6 @@ pre {
 	margin-left: 20px;
 	clear: both;
 }
-
-/* Override bootstrap's margin on container-fluid */
-/*.container-fluid {
-	margin-left: 50px;
-	margin-right: 50px;
-}*/
 
 /* Slide Out Sidebar */
 snap-content {

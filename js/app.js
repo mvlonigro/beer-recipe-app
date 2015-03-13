@@ -6,9 +6,6 @@ var beerRecipeApp = angular.module('beer-recipe', ['snap']);
 beerRecipeApp
 	.controller('beerRecipeCtrl', ['$scope', 'snapRemote', function($scope, snapRemote) {
 	$scope.init = function() {
-		// $scope.ingredientList = ["Ingredient0","Ingredient1","Ingredient2","Ingredient3","Ingredient4","Ingredient5","Ingredient6",
-		// "Ingredient7","Ingredient8","Ingredient9","Ingredient10","Ingredient11","Ingredient12","Ingredient13","Ingredient14","Ingredient15"]
-
 		// From ingredient-list.js
 		$scope.ingredientList = ingredientList;
 
@@ -19,11 +16,15 @@ beerRecipeApp
 		//		quantity: "80%",
 		//		note: "1st hour"
 		// }]
+		// Holds the ingredients displayed on the recipe
 		$scope.ingredients = [];
+		// Holds the steps displayed on the recipe
 		$scope.steps = [];
+		// Holds the notes displayed on the recipe
 		$scope.notes = [];
 	}
 
+	// Adds a new ingredient to the recipe
 	$scope.addIngredient = function() {
 		// Push new ingredient onto the ingredients array
 		//alert("add ingredient");
@@ -41,6 +42,7 @@ beerRecipeApp
 		$scope.ingredientFieldFocus();
 	}
 
+	// Adds a new step to the recipe
 	$scope.addStep = function() {
 		// Push new step onto the steps array
 		if ($scope.newStep.length > 0) {
@@ -49,6 +51,7 @@ beerRecipeApp
 		$scope.newStep = '';
 	}
 
+	// Adds a new note to the recipe
 	$scope.addNote = function() {
 		// Push new note onto the notes array
 		if ($scope.newNote.length > 0) {
@@ -57,6 +60,7 @@ beerRecipeApp
 		$scope.newNote = '';
 	}
 
+	// Populates the text input with the ingredient that was selected from the side bar
 	$scope.selectIngredient = function(ing) {
 		// Set newIngredient (ingredient input text box) to selected ingredient text
 		$scope.newIngredient = ing;
@@ -64,10 +68,12 @@ beerRecipeApp
 		$scope.ingredientFieldFocus();
 	}
 
+	// Adds focus back to the ingredient input box
 	$scope.ingredientFieldFocus = function() {
 		document.getElementById('add-ingredient-field').focus();
 	}
 
+	// Removes an item from the recipe
 	$scope.deleteRecipeItem = function(type, index) {
 		if (type === 'ingredient') {
 			$scope.ingredients.splice(index, 1);
@@ -78,6 +84,8 @@ beerRecipeApp
 		}
 	}
 
+	// Returns true if the item passed in is undefined or an empty string ''
+	//	Needed for the quantity and notes for an ingredient
 	$scope.isUndefinedOrEmpty = function(item) {
 		if (typeof(item) === 'undefined' || item === '') {
 			return true;
@@ -85,13 +93,13 @@ beerRecipeApp
 		return false;
 	}
 
+	// Opens the side bar
 	$scope.openSnap = function() {
-		console.log('open');
 		snapRemote.open('left');
 	}
 
+	// Closes the side bar
 	$scope.closeSnap = function() {
-		console.log('close');
 		snapRemote.close();
 	}
 }]);
