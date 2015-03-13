@@ -6,10 +6,19 @@ var beerRecipeApp = angular.module('beer-recipe', ['snap']);
 beerRecipeApp
 	.controller('beerRecipeCtrl', ['$scope', 'snapRemote', function($scope, snapRemote) {
 	$scope.init = function() {
-		$scope.ingredientList = ["Ingredient0","Ingredient1","Ingredient2","Ingredient3","Ingredient4","Ingredient5","Ingredient6",
-		"Ingredient7","Ingredient8","Ingredient9","Ingredient10","Ingredient11","Ingredient12","Ingredient13","Ingredient14","Ingredient15"]
+		// $scope.ingredientList = ["Ingredient0","Ingredient1","Ingredient2","Ingredient3","Ingredient4","Ingredient5","Ingredient6",
+		// "Ingredient7","Ingredient8","Ingredient9","Ingredient10","Ingredient11","Ingredient12","Ingredient13","Ingredient14","Ingredient15"]
+
+		// From ingredient-list.js
+		$scope.ingredientList = ingredientList;
 
 		// Set model arrays
+		// Ingredient model format:
+		// [{
+		//		text: "ingredient text",
+		//		quantity: "80%",
+		//		note: "1st hour"
+		// }]
 		$scope.ingredients = [];
 		$scope.steps = [];
 		$scope.notes = [];
@@ -19,28 +28,21 @@ beerRecipeApp
 		// Push new ingredient onto the ingredients array
 		//alert("add ingredient");
 		if (typeof($scope.newIngredient) !== 'undefined' && $scope.newIngredient.length > 0) {
-			var ingText = '';
-			if (typeof($scope.newIngredientQuantity) !== 'undefined' && $scope.newIngredientQuantity.length > 0) {
-				ingText += $scope.newIngredientQuantity + '\t';
-				$scope.newIngredientQuantity = '';
-			}
-
-			ingText += $scope.newIngredient;
-
-			if (typeof($scope.newIngredientNote) !== 'undefined' && $scope.newIngredientNote.length > 0) {
-				ingText += '\n' + 'Note: ' + $scope.newIngredientNote;
-				$scope.newIngredientNote = '';
-			}
-
-			$scope.ingredients.push(ingText);
+			
+			$scope.ingredients.push({
+				text: $scope.newIngredient,
+				quantity: $scope.newIngredientQuantity,
+				note: $scope.newIngredientNote
+			});
 		}
 		$scope.newIngredient = '';
+		$scope.newIngredientQuantity = '';
+		$scope.newIngredientNote = '';
 		$scope.closeSnap();
 	}
 
 	$scope.addStep = function() {
 		// Push new step onto the steps array
-		//alert("add step");
 		if ($scope.newStep.length > 0) {
 			$scope.steps.push($scope.newStep);
 		}
@@ -49,17 +51,32 @@ beerRecipeApp
 
 	$scope.addNote = function() {
 		// Push new note onto the notes array
-		//alert("add note");
 		if ($scope.newNote.length > 0) {
 			$scope.notes.push($scope.newNote);
 		}
 		$scope.newNote = '';
 	}
 
-	$scope.selectIngredient = function( ing ) {
+	$scope.selectIngredient = function(ing) {
 		// Set newIngredient (ingredient input text box) to selected ingredient text
 		$scope.newIngredient = ing;
+	}
 
+	$scope.deleteRecipeItem = function(type, index) {
+		if (type === 'ingredient') {
+			$scope.ingredients.splice(index, 1);
+		} else if (type === 'step') {
+			$scope.steps.splice(index, 1);
+		} else if (type === 'note') {
+			$scope.notes.splice(index, 1);
+		}
+	}
+
+	$scope.isUndefined = function(item) {
+		if (typeof(item) === 'undefined') {
+			return true;
+		}
+		return false;
 	}
 
 	$scope.openSnap = function() {

@@ -11,6 +11,11 @@ textarea {
 	resize: vertical;
 }
 
+pre {
+	display: inline-block;
+	width: 80%;
+}
+
 #header {
 	/*margin-bottom: 30px;*/
 }
@@ -44,9 +49,27 @@ textarea {
 	margin-bottom: 30px;
 }
 
+.pointer {
+	cursor: pointer;
+}
+
+.ingredient-text {
+	font-weight: bold;
+}
+
+.ingredient-quantity {
+	margin-right: 20px;
+}
+
+.ingredient-note {
+	margin-left: 20px;
+	clear: both;
+}
+
 /* Override bootstrap's margin on container-fluid */
 .container-fluid {
 	margin-left: 50px;
+	margin-right: 50px;
 }
 
 /* Slide Out Sidebar */
