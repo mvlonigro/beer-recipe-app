@@ -38,7 +38,7 @@ beerRecipeApp
 		$scope.newIngredient = '';
 		$scope.newIngredientQuantity = '';
 		$scope.newIngredientNote = '';
-		$scope.closeSnap();
+		$scope.ingredientFieldFocus();
 	}
 
 	$scope.addStep = function() {
@@ -60,6 +60,12 @@ beerRecipeApp
 	$scope.selectIngredient = function(ing) {
 		// Set newIngredient (ingredient input text box) to selected ingredient text
 		$scope.newIngredient = ing;
+		// Add the focus back to the text input
+		$scope.ingredientFieldFocus();
+	}
+
+	$scope.ingredientFieldFocus = function() {
+		document.getElementById('add-ingredient-field').focus();
 	}
 
 	$scope.deleteRecipeItem = function(type, index) {
@@ -72,18 +78,20 @@ beerRecipeApp
 		}
 	}
 
-	$scope.isUndefined = function(item) {
-		if (typeof(item) === 'undefined') {
+	$scope.isUndefinedOrEmpty = function(item) {
+		if (typeof(item) === 'undefined' || item === '') {
 			return true;
 		}
 		return false;
 	}
 
 	$scope.openSnap = function() {
+		console.log('open');
 		snapRemote.open('left');
 	}
 
 	$scope.closeSnap = function() {
-		snapRemote.close('left');
+		console.log('close');
+		snapRemote.close();
 	}
 }]);
